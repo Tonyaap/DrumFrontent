@@ -3,8 +3,8 @@ import React from "react";
 function Crash() {
   return (
     <div>
-      <span> Crash</span>
-      <div className="Crash">
+      <span> Cymbal</span>
+      <div className="Cymbal">
         <input type="checkbox" />
         <input type="checkbox" />
         <input type="checkbox" />

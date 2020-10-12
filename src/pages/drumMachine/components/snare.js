@@ -4,7 +4,7 @@ function Snare() {
   return (
     <div>
       <span> Snare</span>
-      <div className="Snare">
+      <div className="snare">
         <input type="checkbox" />
         <input type="checkbox" />
         <input type="checkbox" />
