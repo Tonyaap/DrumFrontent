@@ -1,8 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import DrumMachine from "./pages/drumMachine";
-import Nav from "./components/Nav";
+import Nav from "./components/navigation";
 import Home from "./pages/home";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
 
 import "./App.css";
 
@@ -10,10 +12,11 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <h1>Welcome!</h1>
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/drummachine" component={DrumMachine} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
       </Switch>
     </div>
   );
