@@ -8,7 +8,7 @@ import HiTom from "./components/hitom";
 import LoTom from "./components/lotom";
 import Rim from "./components/rim";
 import Cymbal from "./components/crash";
-import { Player } from "tone";
+import { Player, Time } from "tone";
 
 const initialStepState = {
   kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
@@ -78,6 +78,9 @@ function DrumMachine() {
         setLoaded(true);
       }
     );
+    return () => {
+      console.log("cleanup function");
+    };
   }, []);
 
   useEffect(() => {
@@ -173,7 +176,7 @@ function DrumMachine() {
     setComposition({ ...composition, [instrument]: newState });
   };
 
-  console.log(composition);
+  // console.log(composition);
 
   return (
     <div>
