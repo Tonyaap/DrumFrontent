@@ -7,7 +7,7 @@ import Snare from "./components/snare";
 import HiTom from "./components/hitom";
 import LoTom from "./components/lotom";
 import Rim from "./components/rim";
-import Crash from "./components/crash";
+import Cymbal from "./components/crash";
 import { Player } from "tone";
 
 const initialStepState = {
@@ -40,7 +40,7 @@ function DrumMachine() {
   async function startPlaying() {
     await Tone.start();
     // Tone.Transport.bpm.rampTo(120, 10);
-    Tone.Transport.schedule((time) => {}, 0);
+    Tone.Transport.schedule(() => {}, 0);
 
     Tone.Transport.start();
 
@@ -67,10 +67,10 @@ function DrumMachine() {
       {
         kick: process.env.PUBLIC_URL + "/drumkits/808/808-Kick.wav",
         snare: process.env.PUBLIC_URL + "/drumkits/808/808-Snare.wav",
-        closedHat: process.env.PUBLIC_URL + "/drumkits/808/808-HiHats.wav",
-        openHat: process.env.PUBLIC_URL + "/drumkits/808/808-OpenHiHats.wav",
-        hiTom: process.env.PUBLIC_URL + "/drumkits/808/808-HiTom.wav",
-        loTom: process.env.PUBLIC_URL + "/drumkits/808/808-LoTom.wav",
+        closedhat: process.env.PUBLIC_URL + "/drumkits/808/808-HiHats.wav",
+        openhat: process.env.PUBLIC_URL + "/drumkits/808/808-OpenHiHats.wav",
+        hitom: process.env.PUBLIC_URL + "/drumkits/808/808-HiTom.wav",
+        lotom: process.env.PUBLIC_URL + "/drumkits/808/808-LoTom.wav",
         rim: process.env.PUBLIC_URL + "/drumkits/808/808-Rim.wav",
         cowbell: process.env.PUBLIC_URL + "/drumkits/808/808-Cowbell.wav",
       },
@@ -91,16 +91,16 @@ function DrumMachine() {
     player2.current.buffer = buffers.current.get("snare");
   }
   if (player3.current) {
-    player3.current.buffer = buffers.current.get("closedHat");
+    player3.current.buffer = buffers.current.get("closedhat");
   }
   if (player4.current) {
-    player4.current.buffer = buffers.current.get("openHat");
+    player4.current.buffer = buffers.current.get("openhat");
   }
   if (player5.current) {
-    player5.current.buffer = buffers.current.get("hiTom");
+    player5.current.buffer = buffers.current.get("hitom");
   }
   if (player6.current) {
-    player6.current.buffer = buffers.current.get("loTom");
+    player6.current.buffer = buffers.current.get("lotom");
   }
   if (player7.current) {
     player7.current.buffer = buffers.current.get("rim");
@@ -123,21 +123,21 @@ function DrumMachine() {
     );
 
     let closedHatInputs = document.querySelector(
-      `.closedHat input:nth-child(${step + 1})`
+      `.closedhat input:nth-child(${step + 1})`
     );
     let openHatInputs = document.querySelector(
-      `.openHat input:nth-child(${step + 1})`
+      `.openhat input:nth-child(${step + 1})`
     );
     let hiTomInputs = document.querySelector(
-      `.HiTom input:nth-child(${step + 1})`
+      `.hitom input:nth-child(${step + 1})`
     );
     let loTomInputs = document.querySelector(
-      `.LoTom input:nth-child(${step + 1})`
+      `.lotom input:nth-child(${step + 1})`
     );
-    let rimInputs = document.querySelector(`.Rim input:nth-child(${step + 1})`);
+    let rimInputs = document.querySelector(`.rim input:nth-child(${step + 1})`);
 
-    let cowbellInputs = document.querySelector(
-      `.Cymbal input:nth-child(${step + 1})`
+    let cymbalInputs = document.querySelector(
+      `.cymbal input:nth-child(${step + 1})`
     );
 
     if (kickInputs.checked) {
@@ -161,7 +161,7 @@ function DrumMachine() {
     if (rimInputs.checked) {
       player7.current.start();
     }
-    if (cowbellInputs.checked) {
+    if (cymbalInputs.checked) {
       player8.current.start();
     }
 
@@ -184,13 +184,34 @@ function DrumMachine() {
           composition={composition["kick"]}
           onCompositionChange={onCompositionChange}
         />
-        <Snare />
-        <ClosedHat />
-        <OpenHat />
-        <HiTom />
-        <LoTom />
-        <Rim />
-        <Crash />
+        <Snare
+          composition={composition["snare"]}
+          onCompositionChange={onCompositionChange}
+        />
+        <ClosedHat
+          composition={composition["closedhat"]}
+          onCompositionChange={onCompositionChange}
+        />
+        <OpenHat
+          composition={composition["openhat"]}
+          onCompositionChange={onCompositionChange}
+        />
+        <HiTom
+          composition={composition["hitom"]}
+          onCompositionChange={onCompositionChange}
+        />
+        <LoTom
+          composition={composition["lotom"]}
+          onCompositionChange={onCompositionChange}
+        />
+        <Rim
+          composition={composition["rim"]}
+          onCompositionChange={onCompositionChange}
+        />
+        <Cymbal
+          composition={composition["cymbal"]}
+          onCompositionChange={onCompositionChange}
+        />
         <div className="Indicator">
           {[...Array(16)].map((_, i) => {
             return (
@@ -203,7 +224,9 @@ function DrumMachine() {
             );
           })}
         </div>
-        <button onClick={startPlaying}>Start</button>
+        <button disabled={!loaded} onClick={startPlaying}>
+          Start
+        </button>
         <button className="button2" onClick={stopPlaying}>
           Stop
         </button>

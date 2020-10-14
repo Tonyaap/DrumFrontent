@@ -15,7 +15,8 @@ function Kick({ composition, onCompositionChange }) {
         {[...Array(16)].map((_, i) => {
           return (
             <input
-              className={`p${i}`}
+              className={`kick${i}`}
+              key={`kick${i}`}
               type="checkbox"
               checked={composition[i]}
               onChange={() => updateComposition(i)}
