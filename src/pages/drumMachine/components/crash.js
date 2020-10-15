@@ -10,19 +10,21 @@ function Cymbal({ composition, onCompositionChange }) {
 
   return (
     <div>
-      <span> Cymbal</span>
       <div className="cymbal">
-        {[...Array(16)].map((_, i) => {
-          return (
-            <input
-              className={`cymbal${i}`}
-              key={`crash${i}`}
-              type="checkbox"
-              checked={composition[i]}
-              onChange={() => updateComposition(i)}
-            />
-          );
-        })}
+        <ul>
+          Cymbal
+          {[...Array(16)].map((_, i) => {
+            return (
+              <input
+                className="checkbox"
+                key={`crash${i}`}
+                type="checkbox"
+                checked={composition[i]}
+                onChange={() => updateComposition(i)}
+              />
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

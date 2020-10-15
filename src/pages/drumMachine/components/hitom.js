@@ -10,19 +10,21 @@ function HiTom({ composition, onCompositionChange }) {
 
   return (
     <div>
-      <span> HiTom</span>
       <div className="hitom">
-        {[...Array(16)].map((_, i) => {
-          return (
-            <input
-              className={`hitom${i}`}
-              key={`hitom${i}`}
-              type="checkbox"
-              checked={composition[i]}
-              onChange={() => updateComposition(i)}
-            />
-          );
-        })}
+        <ul>
+          HiTom
+          {[...Array(16)].map((_, i) => {
+            return (
+              <input
+                className="checkbox"
+                key={`hitom${i}`}
+                type="checkbox"
+                checked={composition[i]}
+                onChange={() => updateComposition(i)}
+              />
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

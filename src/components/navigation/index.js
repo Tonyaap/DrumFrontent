@@ -14,8 +14,7 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="light" expand="lg">
-      {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+    <Navbar bg="navbar-dark" expand="lg">
       <Navbar.Collapse id="basic-navbar-nav">
         <NavLink to="/" exact activeClassName="selected">
           <li className="singlenav">HOME</li>

@@ -10,19 +10,22 @@ function Kick({ composition, onCompositionChange }) {
 
   return (
     <div>
-      <span> Kick</span>
+      {" "}
       <div className="kick">
-        {[...Array(16)].map((_, i) => {
-          return (
-            <input
-              className={`kick${i}`}
-              key={`kick${i}`}
-              type="checkbox"
-              checked={composition[i]}
-              onChange={() => updateComposition(i)}
-            />
-          );
-        })}
+        <ul>
+          Kick
+          {[...Array(16)].map((_, i) => {
+            return (
+              <input
+                className="checkbox"
+                key={`kick${i}`}
+                type="checkbox"
+                checked={composition[i]}
+                onChange={() => updateComposition(i)}
+              />
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

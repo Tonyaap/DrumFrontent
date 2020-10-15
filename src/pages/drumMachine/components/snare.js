@@ -10,19 +10,22 @@ function Snare({ composition, onCompositionChange }) {
 
   return (
     <div>
-      <span> Snare</span>
       <div className="snare">
-        {[...Array(16)].map((_, i) => {
-          return (
-            <input
-              className={`snare${i}`}
-              key={`snare${i}`}
-              type="checkbox"
-              checked={composition[i]}
-              onChange={() => updateComposition(i)}
-            />
-          );
-        })}
+        <ul>
+          {" "}
+          Snare
+          {[...Array(16)].map((_, i) => {
+            return (
+              <input
+                className="checkbox"
+                key={`snare${i}`}
+                type="checkbox"
+                checked={composition[i]}
+                onChange={() => updateComposition(i)}
+              />
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ function DrumMachine() {
   };
 
   const [composition, setComposition] = useState(initialStepState);
-  const [tempo, setTempo] = useState(100);
+  const [tempo, setTempo] = useState(60);
   const [loaded, setLoaded] = useState(false);
   const [compositionName, setCompositionName] = useState("");
 
@@ -184,107 +184,10 @@ function DrumMachine() {
   };
 
   return (
-    <div>
-      <h1> DrumMachine! </h1>
-      <p>Load composition:</p>
-      <select
-        onChange={(event) => {
-          setCompositionName(event.target.value);
-          console.log("event", event.target.value);
-          setComposition({
-            kick: compositions[1].kick.map((step) => {
-              return parseInt(step);
-            }),
-            snare: compositions[1].snare.map((step) => {
-              return parseInt(step);
-            }),
-            closedhat: compositions[1].closedhat.map((step) => {
-              return parseInt(step);
-            }),
-            openhat: compositions[1].closedhat.map((step) => {
-              return parseInt(step);
-            }),
-            hitom: compositions[1].closedhat.map((step) => {
-              return parseInt(step);
-            }),
-            lotom: compositions[1].lotom.map((step) => {
-              return parseInt(step);
-            }),
-            rim: compositions[1].rim.map((step) => {
-              return parseInt(step);
-            }),
-            cymbal: compositions[1].cymbal.map((step) => {
-              return parseInt(step);
-            }),
-          });
-        }}
-      >
-        {compositions?.map((composition) => {
-          return (
-            <option key={composition.id}>
-              {" "}
-              {composition.id}: {composition.compositionName}{" "}
-            </option>
-          );
-        })}
-      </select>
-      <button> Load composition </button>
-      <br></br>
-      <input className="input" type="compsitionName" />
-      <button> Save composition </button>
-
-      <div className="drums">
-        <br />
-        <Kick
-          composition={composition["kick"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <Snare
-          composition={composition["snare"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <ClosedHat
-          composition={composition["closedhat"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <OpenHat
-          composition={composition["openhat"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <HiTom
-          composition={composition["hitom"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <LoTom
-          composition={composition["lotom"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <Rim
-          composition={composition["rim"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <Cymbal
-          composition={composition["cymbal"]}
-          onCompositionChange={onCompositionChange}
-        />
-        <div className="Indicator">
-          {[...Array(16)].map((_, i) => {
-            return (
-              <input
-                type="checkbox"
-                readOnly
-                checked={i === currentStep}
-                key={i}
-              />
-            );
-          })}
-        </div>
-        <button disabled={!loaded} onClick={startPlaying}>
-          Start
-        </button>
-        <button className="button2" onClick={stopPlaying}>
-          Stop
-        </button>
+    <div className="background">
+      <div className="stepSequencer">
+        <h1> DrumMachine! </h1>
+        <br></br>
         <input
           type="range"
           min={60}
@@ -293,7 +196,140 @@ function DrumMachine() {
             setTempo(event.target.value);
           }}
         />{" "}
-        <p> bpm = {tempo} </p>
+        BPM = {tempo}
+        <br></br>
+        <div className="drums">
+          <br />
+          <div className="indicator">
+            <Kick
+              composition={composition["kick"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <Snare
+              composition={composition["snare"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <ClosedHat
+              composition={composition["closedhat"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <OpenHat
+              composition={composition["openhat"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <HiTom
+              composition={composition["hitom"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <LoTom
+              composition={composition["lotom"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <Rim
+              composition={composition["rim"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <Cymbal
+              composition={composition["cymbal"]}
+              onCompositionChange={onCompositionChange}
+            />
+            <div className="Indicator">
+              {[...Array(16)].map((_, i) => {
+                return (
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    readOnly
+                    checked={i === currentStep}
+                    key={i}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          <br></br>
+          <button className="button2" disabled={!loaded} onClick={startPlaying}>
+            Start
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              className="bi bi-play"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"
+              />
+            </svg>
+          </button>
+          <button className="button2" onClick={stopPlaying}>
+            Stop
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              className="bi bi-stop"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3.5 5A1.5 1.5 0 0 1 5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5zM5 4.5a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5H5z"
+              />
+            </svg>
+          </button>
+          <br></br>
+          <br></br>
+
+          <select
+            onChange={(event) => {
+              setCompositionName(event.target.value);
+              console.log(compositionName);
+
+              setComposition({
+                kick: compositions[0].kick.map((step) => {
+                  return parseInt(step);
+                }),
+                snare: compositions[0].snare.map((step) => {
+                  return parseInt(step);
+                }),
+                closedhat: compositions[0].closedhat.map((step) => {
+                  return parseInt(step);
+                }),
+                openhat: compositions[0].closedhat.map((step) => {
+                  return parseInt(step);
+                }),
+                hitom: compositions[0].closedhat.map((step) => {
+                  return parseInt(step);
+                }),
+                lotom: compositions[0].lotom.map((step) => {
+                  return parseInt(step);
+                }),
+                rim: compositions[0].rim.map((step) => {
+                  return parseInt(step);
+                }),
+                cymbal: compositions[0].cymbal.map((step) => {
+                  return parseInt(step);
+                }),
+              });
+            }}
+          >
+            {compositions?.map((composition) => {
+              return (
+                <option key={composition.id}>
+                  {" "}
+                  {composition.compositionName}{" "}
+                </option>
+              );
+            })}
+          </select>
+          <button className="button1"> Load composition </button>
+          <br></br>
+          <input className="input" type="compsitionName" />
+          <button className="button1"> Save composition </button>
+        </div>
       </div>
     </div>
   );

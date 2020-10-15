@@ -8,7 +8,7 @@ import Signup from "./pages/signup";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { useDispatch } from "react-redux";
 
-import "./App.css";
+import "./style/global.scss";
 
 function App() {
   const dispatch = useDispatch();

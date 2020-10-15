@@ -10,19 +10,21 @@ function LoTom({ composition, onCompositionChange }) {
 
   return (
     <div>
-      <span> LoTom</span>
       <div className="lotom">
-        {[...Array(16)].map((_, i) => {
-          return (
-            <input
-              className={`lotom${i}`}
-              key={`lotom${i}`}
-              type="checkbox"
-              checked={composition[i]}
-              onChange={() => updateComposition(i)}
-            />
-          );
-        })}
+        <ul>
+          LoTom{" "}
+          {[...Array(16)].map((_, i) => {
+            return (
+              <input
+                className="checkbox"
+                key={`lotom${i}`}
+                type="checkbox"
+                checked={composition[i]}
+                onChange={() => updateComposition(i)}
+              />
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
