@@ -4,7 +4,7 @@ function ClosedHat({ composition, onCompositionChange }) {
   const updateComposition = (id) => {
     const newComposition = [...composition];
     newComposition[id] = newComposition[id] === 1 ? 0 : 1;
-    console.log(newComposition);
+    console.log("closedhat", newComposition);
     onCompositionChange("closedhat", newComposition);
   };
 

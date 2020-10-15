@@ -12,24 +12,28 @@ import { Player } from "tone";
 import { useSelector } from "react-redux";
 import { selectCompositions } from "../../store/user/selectors";
 
-const initialStepState = {
-  kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-  snare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  closedhat: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  openhat: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  hitom: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  lotom: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  rim: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  cymbal: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-};
-
-console.log("int step state", initialStepState);
-
 function DrumMachine() {
+  const compositions = useSelector(selectCompositions);
+
+  const initialStepState = {
+    kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    snare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    closedhat: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    openhat: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    hitom: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    lotom: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    rim: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    cymbal: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  };
+
   const [composition, setComposition] = useState(initialStepState);
   const [tempo, setTempo] = useState(100);
   const [loaded, setLoaded] = useState(false);
-  const compositions = useSelector(selectCompositions);
+  const [compositionName, setCompositionName] = useState("");
+
+  console.log("compositionName", compositionName);
+  console.log("compositions", compositions);
+
   const [currentStep, setStep] = useState(0);
   const buffers = useRef(null);
   const player1 = useRef(null);
@@ -120,8 +124,6 @@ function DrumMachine() {
   function repeat() {
     let step = index % 16;
 
-    // console.log("STEP?", step);
-
     let kickInputs = document.querySelector(
       `.kick input:nth-child(${step + 1} )`
     );
@@ -181,22 +183,55 @@ function DrumMachine() {
     setComposition({ ...composition, [instrument]: newState });
   };
 
-  // console.log(composition);
-
   return (
     <div>
       <h1> DrumMachine! </h1>
       <p>Load composition:</p>
-      <select>
+      <select
+        onChange={(event) => {
+          setCompositionName(event.target.value);
+          console.log("event", event.target.value);
+          setComposition({
+            kick: compositions[1].kick.map((step) => {
+              return parseInt(step);
+            }),
+            snare: compositions[1].snare.map((step) => {
+              return parseInt(step);
+            }),
+            closedhat: compositions[1].closedhat.map((step) => {
+              return parseInt(step);
+            }),
+            openhat: compositions[1].closedhat.map((step) => {
+              return parseInt(step);
+            }),
+            hitom: compositions[1].closedhat.map((step) => {
+              return parseInt(step);
+            }),
+            lotom: compositions[1].lotom.map((step) => {
+              return parseInt(step);
+            }),
+            rim: compositions[1].rim.map((step) => {
+              return parseInt(step);
+            }),
+            cymbal: compositions[1].cymbal.map((step) => {
+              return parseInt(step);
+            }),
+          });
+        }}
+      >
         {compositions?.map((composition) => {
           return (
             <option key={composition.id}>
               {" "}
-              {composition.compositionName}{" "}
+              {composition.id}: {composition.compositionName}{" "}
             </option>
           );
         })}
       </select>
+      <button> Load composition </button>
+      <br></br>
+      <input className="input" type="compsitionName" />
+      <button> Save composition </button>
 
       <div className="drums">
         <br />
