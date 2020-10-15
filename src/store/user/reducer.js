@@ -4,11 +4,13 @@ const initialState = {
   token: localStorage.getItem("token"),
   name: null,
   email: null,
+  compositions: null,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
+      console.log("action", action);
       localStorage.setItem("token", action.payload.token);
       return { ...state, ...action.payload };
 

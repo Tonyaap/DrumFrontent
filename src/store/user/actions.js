@@ -61,6 +61,19 @@ export const login = (email, password) => {
         password,
       });
 
+      // const token = response.data.jwt;
+      // console.log("TOKEN?", token);
+
+      // const profileResponse = await axios.get(`${apiUrl}/auth/me`, {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      // });
+
+      // const profile = profileResponse.data;
+
+      // dispatch(userAuthenticated(token, profile));
+
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
       dispatch(appDoneLoading());
@@ -81,6 +94,7 @@ export const getUserWithStoredToken = () => {
   return async (dispatch, getState) => {
     // get token from the state
     const token = selectToken(getState());
+    // console.log("Get user with Token", token);
 
     // if we have no token, stop
     if (token === null) return;
@@ -89,7 +103,7 @@ export const getUserWithStoredToken = () => {
     try {
       // if we do have a token,
       // check wether it is still valid or if it is expired
-      const response = await axios.get(`${apiUrl}/me`, {
+      const response = await axios.get(`${apiUrl}/auth/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

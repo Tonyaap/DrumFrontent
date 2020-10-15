@@ -23,6 +23,8 @@ const initialStepState = {
   cymbal: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 };
 
+console.log("int step state", initialStepState);
+
 function DrumMachine() {
   const [composition, setComposition] = useState(initialStepState);
   const [tempo, setTempo] = useState(100);
@@ -39,8 +41,6 @@ function DrumMachine() {
   const player7 = useRef(null);
   const player8 = useRef(null);
   let index = 0;
-
-  console.log("compositions?", compositions);
 
   async function startPlaying() {
     await Tone.start();
@@ -84,7 +84,7 @@ function DrumMachine() {
       }
     );
     return () => {
-      console.log("cleanup function");
+      // console.log("cleanup function");
     };
   }, []);
 
@@ -120,7 +120,7 @@ function DrumMachine() {
   function repeat() {
     let step = index % 16;
 
-    console.log("STEP?", step);
+    // console.log("STEP?", step);
 
     let kickInputs = document.querySelector(
       `.kick input:nth-child(${step + 1} )`
@@ -186,7 +186,18 @@ function DrumMachine() {
   return (
     <div>
       <h1> DrumMachine! </h1>
-      <option> </option>
+      <p>Load composition:</p>
+      <select>
+        {compositions?.map((composition) => {
+          return (
+            <option key={composition.id}>
+              {" "}
+              {composition.compositionName}{" "}
+            </option>
+          );
+        })}
+      </select>
+
       <div className="drums">
         <br />
         <Kick

@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import DrumMachine from "./pages/drumMachine";
 import Nav from "./components/navigation";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
+import { getUserWithStoredToken } from "./store/user/actions";
+import { useDispatch } from "react-redux";
 
 import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserWithStoredToken());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Nav />
