@@ -5,8 +5,9 @@ import Button from "react-bootstrap/Button";
 import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
+import { selectMessage } from "../../store/appState/selectors";
 import { useHistory, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
+import { Alert, Col } from "react-bootstrap";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
+  const message = useSelector(selectMessage);
 
   useEffect(() => {
     if (token !== null) {
@@ -64,6 +66,7 @@ export default function SignUp() {
         <Link to="/signup" style={{ textAlign: "center" }}>
           Click here to sign up
         </Link>
+        <Alert> {message?.text} </Alert>
       </Form>
     </Container>
   );

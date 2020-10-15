@@ -6,12 +6,14 @@ import { signUp } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
+import { selectMessage } from "../../store/appState/selectors";
+import { Alert, Col } from "react-bootstrap";
 
 export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const message = useSelector(selectMessage);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
@@ -76,6 +78,7 @@ export default function SignUp() {
           </Button>
         </Form.Group>
         <Link to="/login">Click here to log in</Link>
+        <Alert> {message?.text} </Alert>
       </Form>
     </Container>
   );

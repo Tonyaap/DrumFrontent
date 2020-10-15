@@ -8,7 +8,9 @@ import HiTom from "./components/hitom";
 import LoTom from "./components/lotom";
 import Rim from "./components/rim";
 import Cymbal from "./components/crash";
-import { Player, Time } from "tone";
+import { Player } from "tone";
+import { useSelector } from "react-redux";
+import { selectCompositions } from "../../store/user/selectors";
 
 const initialStepState = {
   kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
@@ -25,6 +27,7 @@ function DrumMachine() {
   const [composition, setComposition] = useState(initialStepState);
   const [tempo, setTempo] = useState(100);
   const [loaded, setLoaded] = useState(false);
+  const compositions = useSelector(selectCompositions);
   const [currentStep, setStep] = useState(0);
   const buffers = useRef(null);
   const player1 = useRef(null);
@@ -37,10 +40,12 @@ function DrumMachine() {
   const player8 = useRef(null);
   let index = 0;
 
+  console.log("compositions?", compositions);
+
   async function startPlaying() {
     await Tone.start();
     // Tone.Transport.bpm.rampTo(120, 10);
-    Tone.Transport.schedule(() => {}, 0);
+    // Tone.Transport.schedule(() => {}, 0);
 
     Tone.Transport.start();
 
@@ -181,6 +186,7 @@ function DrumMachine() {
   return (
     <div>
       <h1> DrumMachine! </h1>
+      <option> </option>
       <div className="drums">
         <br />
         <Kick
