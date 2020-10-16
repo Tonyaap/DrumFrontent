@@ -30,9 +30,9 @@ function DrumMachine() {
   const [tempo, setTempo] = useState(60);
   const [loaded, setLoaded] = useState(false);
   const [compositionName, setCompositionName] = useState("");
+  const [volume, setVolume] = useState(0);
 
-  console.log("compositionName", compositionName);
-  console.log("compositions", compositions);
+  Tone.Destination.volume.value = volume;
 
   const [currentStep, setStep] = useState(0);
   const buffers = useRef(null);
@@ -48,21 +48,18 @@ function DrumMachine() {
 
   async function startPlaying() {
     await Tone.start();
-    // Tone.Transport.bpm.rampTo(120, 10);
-    // Tone.Transport.schedule(() => {}, 0);
-
     Tone.Transport.start();
-
     console.log("audio ready");
   }
   async function stopPlaying() {
     await Tone.Transport.stop();
-
     console.log("audio stopped");
   }
 
   useEffect(() => {
-    Tone.Transport.scheduleRepeat(repeat, "16n");
+    Tone.Transport.scheduleRepeat((Time) => {
+      repeat(Time);
+    }, "16n");
     player1.current = new Player().toDestination();
     player2.current = new Player().toDestination();
     player3.current = new Player().toDestination();
@@ -127,11 +124,9 @@ function DrumMachine() {
     let kickInputs = document.querySelector(
       `.kick input:nth-child(${step + 1} )`
     );
-
     let snareInputs = document.querySelector(
       `.snare input:nth-child(${step + 1})`
     );
-
     let closedHatInputs = document.querySelector(
       `.closedhat input:nth-child(${step + 1})`
     );
@@ -187,9 +182,19 @@ function DrumMachine() {
     <div className="background">
       <div className="stepSequencer">
         <h1> DrumMachine! </h1>
+        <input
+          type="range"
+          min={-50}
+          max={0}
+          onChange={(event) => {
+            setVolume(event.target.value);
+          }}
+        />
+        Volume
         <br></br>
         <input
           type="range"
+          step="1"
           min={60}
           max={180}
           onChange={(event) => {

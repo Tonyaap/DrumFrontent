@@ -8,11 +8,34 @@ $font-family-base: "Aladin", serif;
 
 .App {
   text-align: center;
+  font-size: large;
 
   background-image: url("https://wallpapercave.com/wp/wp2343941.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
   color: white;
   padding-top: 10px;
   padding-bottom: 100px;
+}
+
+.singlenav {
+  color: red;
+}
+
+.singlenav:hover {
+  color: white;
+}
+
+.makenoise {
+  color: white;
+  margin-right: 50px;
+}
+
+.makenoise:hover {
+  color: red;
 }
 
 .indicator {
@@ -46,7 +69,7 @@ $font-family-base: "Aladin", serif;
 }
 
 .button2 {
-  color: rgb(255, 255, 255) !important;
+  color: black !important;
   text-transform: lowercase;
   background: linear-gradient(
     45deg,

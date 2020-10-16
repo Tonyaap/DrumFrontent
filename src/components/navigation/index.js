@@ -14,13 +14,13 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="navbar-dark" expand="lg">
+    <Navbar className="navigation" variant="light">
       <Navbar.Collapse id="basic-navbar-nav">
         <NavLink to="/" exact activeClassName="selected">
-          <li className="singlenav">HOME</li>
+          <ul className="singlenav">HOME</ul>
         </NavLink>
         <NavLink to="/drummachine" activeClassName="selected">
-          <li className="singlenav">DrumMachine</li>
+          <ul className="singlenav">DrumMachine</ul>
         </NavLink>
         <Nav style={{ width: "100%" }} fill>
           {loginLogoutControls}

@@ -61,28 +61,13 @@ export const login = (email, password) => {
         password,
       });
 
-      // const token = response.data.jwt;
-      // console.log("TOKEN?", token);
-
-      // const profileResponse = await axios.get(`${apiUrl}/auth/me`, {
-      //   headers: {
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      // });
-
-      // const profile = profileResponse.data;
-
-      // dispatch(userAuthenticated(token, profile));
-
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
-        // console.log(error.response.data.message);
         dispatch(setMessage("danger", true, error.response.data.message));
       } else {
-        // console.log(error.message);
         dispatch(setMessage("danger", true, error.message));
       }
       dispatch(appDoneLoading());

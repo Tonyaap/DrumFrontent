@@ -3,17 +3,17 @@ import { NavLink } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="stepsequencer">
+    <div className="home">
       <br></br>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      <h1> DrumMachine </h1>
+      <h1> Drum_Machine </h1>
       <br></br>
       <br></br>
       <NavLink to="/drummachine" activeClassName="selected">
-        <li className="singlenav">Make some noise!</li>
+        <ul className="makenoise"> ♫ Make some noise!</ul>
       </NavLink>
       <br></br>
       <br></br> <br></br>
