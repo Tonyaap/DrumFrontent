@@ -20,11 +20,12 @@ function Kick({ composition, onCompositionChange }) {
                 className="checkbox"
                 key={`kick${i}`}
                 type="checkbox"
+                id="customcheck"
                 checked={composition[i]}
                 onChange={() => updateComposition(i)}
               />
             );
-          })}
+          })}{" "}
         </ul>
       </div>
     </div>

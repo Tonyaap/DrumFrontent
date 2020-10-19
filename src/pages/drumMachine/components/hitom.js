@@ -16,7 +16,7 @@ function HiTom({ composition, onCompositionChange }) {
           {[...Array(16)].map((_, i) => {
             return (
               <input
-                className="checkbox"
+                className="check"
                 key={`hitom${i}`}
                 type="checkbox"
                 checked={composition[i]}

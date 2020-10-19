@@ -16,7 +16,7 @@ function ClosedHat({ composition, onCompositionChange }) {
           {[...Array(16)].map((_, i) => {
             return (
               <input
-                className="checkbox"
+                className="check"
                 key={`closedhat${i}`}
                 type="checkbox"
                 checked={composition[i]}

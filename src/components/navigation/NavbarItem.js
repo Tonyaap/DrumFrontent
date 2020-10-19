@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function NavbarItem(props) {
   return (
     <Nav.Item>
-      <Nav.Link as={NavLink} to={props.path}>
+      <Nav.Link as={NavLink} to={props.path} style={{ color: "white" }}>
         {props.linkText}
       </Nav.Link>
     </Nav.Item>

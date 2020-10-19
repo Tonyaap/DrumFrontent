@@ -102,7 +102,9 @@ $font-family-base: "Aladin", serif;
   padding: 10px;
 }
 
-.checkbox {
-  margin-left: 10px;
-  transform: scale(1.5);
+input[type="checkbox"] {
+  margin-left: 14px;
+  transform: scale(2);
+  cursor: pointer;
+  opacity: 1;
 }

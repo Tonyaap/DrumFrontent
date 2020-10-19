@@ -16,7 +16,7 @@ function LoTom({ composition, onCompositionChange }) {
           {[...Array(16)].map((_, i) => {
             return (
               <input
-                className="checkbox"
+                className="check"
                 key={`lotom${i}`}
                 type="checkbox"
                 checked={composition[i]}

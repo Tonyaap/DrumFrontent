@@ -16,7 +16,7 @@ function Cymbal({ composition, onCompositionChange }) {
           {[...Array(16)].map((_, i) => {
             return (
               <input
-                className="checkbox"
+                className="check"
                 key={`crash${i}`}
                 type="checkbox"
                 checked={composition[i]}

@@ -10,10 +10,17 @@ import Rim from "./components/rim";
 import Cymbal from "./components/crash";
 import { Player } from "tone";
 import { useSelector } from "react-redux";
-import { selectCompositions } from "../../store/user/selectors";
+import {
+  selectCompositions,
+  selectCompositionNames,
+  selectCompositionById,
+} from "../../store/user/selectors";
 
 function DrumMachine() {
   const compositions = useSelector(selectCompositions);
+  const compositionNames = useSelector(selectCompositionNames);
+  const [filterById, setFilterById] = useState(0);
+  const compositionById = useSelector(selectCompositionById(filterById));
 
   const initialStepState = {
     kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
@@ -28,9 +35,8 @@ function DrumMachine() {
 
   const [composition, setComposition] = useState(initialStepState);
   const [tempo, setTempo] = useState(60);
-  const [loaded, setLoaded] = useState(false);
-  const [compositionName, setCompositionName] = useState("");
-  const [volume, setVolume] = useState(0);
+  // const [loaded, setLoaded] = useState(false);
+  const [volume, setVolume] = useState(-12);
 
   Tone.Destination.volume.value = volume;
 
@@ -57,8 +63,8 @@ function DrumMachine() {
   }
 
   useEffect(() => {
-    Tone.Transport.scheduleRepeat((Time) => {
-      repeat(Time);
+    Tone.Transport.scheduleRepeat(() => {
+      repeat();
     }, "16n");
     player1.current = new Player().toDestination();
     player2.current = new Player().toDestination();
@@ -81,7 +87,7 @@ function DrumMachine() {
         cowbell: process.env.PUBLIC_URL + "/drumkits/808/808-Cowbell.wav",
       },
       function () {
-        setLoaded(true);
+        // setLoaded(true);
       }
     );
     return () => {
@@ -178,10 +184,39 @@ function DrumMachine() {
     setComposition({ ...composition, [instrument]: newState });
   };
 
+  useEffect(() => {
+    setComposition({
+      kick: compositionById.kick?.map((step) => {
+        return parseInt(step);
+      }),
+      snare: compositionById.snare?.map((step) => {
+        return parseInt(step);
+      }),
+      closedhat: compositionById.closedhat?.map((step) => {
+        return parseInt(step);
+      }),
+      openhat: compositionById.closedhat?.map((step) => {
+        return parseInt(step);
+      }),
+      hitom: compositionById.closedhat?.map((step) => {
+        return parseInt(step);
+      }),
+      lotom: compositionById.lotom?.map((step) => {
+        return parseInt(step);
+      }),
+      rim: compositionById.rim?.map((step) => {
+        return parseInt(step);
+      }),
+      cymbal: compositionById.cymbal?.map((step) => {
+        return parseInt(step);
+      }),
+    });
+  }, [filterById]);
+
   return (
     <div className="background">
       <div className="stepSequencer">
-        <h1> DrumMachine! </h1>
+        <h1> Drum_Machine! </h1>
         <input
           type="range"
           min={-50}
@@ -242,7 +277,7 @@ function DrumMachine() {
               {[...Array(16)].map((_, i) => {
                 return (
                   <input
-                    className="checkbox"
+                    className="check"
                     type="checkbox"
                     readOnly
                     checked={i === currentStep}
@@ -253,7 +288,7 @@ function DrumMachine() {
             </div>
           </div>
           <br></br>
-          <button className="button2" disabled={!loaded} onClick={startPlaying}>
+          <button className="button2" onClick={startPlaying}>
             Start
             <svg
               width="1em"
@@ -290,40 +325,12 @@ function DrumMachine() {
 
           <select
             onChange={(event) => {
-              setCompositionName(event.target.value);
-              console.log(compositionName);
-
-              setComposition({
-                kick: compositions[0].kick.map((step) => {
-                  return parseInt(step);
-                }),
-                snare: compositions[0].snare.map((step) => {
-                  return parseInt(step);
-                }),
-                closedhat: compositions[0].closedhat.map((step) => {
-                  return parseInt(step);
-                }),
-                openhat: compositions[0].closedhat.map((step) => {
-                  return parseInt(step);
-                }),
-                hitom: compositions[0].closedhat.map((step) => {
-                  return parseInt(step);
-                }),
-                lotom: compositions[0].lotom.map((step) => {
-                  return parseInt(step);
-                }),
-                rim: compositions[0].rim.map((step) => {
-                  return parseInt(step);
-                }),
-                cymbal: compositions[0].cymbal.map((step) => {
-                  return parseInt(step);
-                }),
-              });
+              setFilterById(event.target.value);
             }}
           >
-            {compositions?.map((composition) => {
+            {compositionNames.map((composition) => {
               return (
-                <option key={composition.id}>
+                <option key={composition.id} value={composition.id}>
                   {" "}
                   {composition.compositionName}{" "}
                 </option>

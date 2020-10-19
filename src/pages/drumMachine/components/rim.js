@@ -17,7 +17,7 @@ function Rim({ composition, onCompositionChange }) {
           {[...Array(16)].map((_, i) => {
             return (
               <input
-                className="checkbox"
+                className="check"
                 key={`rim${i}`}
                 type="checkbox"
                 checked={composition[i]}
