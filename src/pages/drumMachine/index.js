@@ -11,7 +11,6 @@ import Cymbal from "./components/crash";
 import { Player } from "tone";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  selectCompositions,
   selectCompositionNames,
   selectCompositionById,
   selectUser,
