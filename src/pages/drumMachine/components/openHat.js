@@ -13,18 +13,20 @@ function OpenHat({ composition, onCompositionChange }) {
       <div className="openhat">
         <ul>
           {" "}
-          OpenHat
-          {[...Array(16)].map((_, i) => {
-            return (
-              <input
-                className="check"
-                key={`openhat${i}`}
-                type="checkbox"
-                checked={composition[i]}
-                onChange={() => updateComposition(i)}
-              />
-            );
-          })}
+          <label className="customCheckbox">
+            OpenHat
+            {[...Array(16)].map((_, i) => {
+              return (
+                <input
+                  className="check"
+                  key={`openhat${i}`}
+                  type="checkbox"
+                  checked={composition[i]}
+                  onChange={() => updateComposition(i)}
+                />
+              );
+            })}
+          </label>
         </ul>
       </div>
     </div>

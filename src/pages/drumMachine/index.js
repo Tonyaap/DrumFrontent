@@ -15,6 +15,7 @@ import {
   selectCompositionById,
   selectUser,
 } from "../../store/user/selectors";
+import { selectMessage } from "../../store/appState/selectors";
 import { createComposition } from "../../store/user/actions";
 
 function DrumMachine() {
@@ -23,6 +24,7 @@ function DrumMachine() {
   const [filterById, setFilterById] = useState(0);
   const compositionById = useSelector(selectCompositionById(filterById));
   const [newCompositionName, setNewComposionName] = useState("");
+  const message = useSelector(selectMessage);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,8 +49,6 @@ function DrumMachine() {
   const [volume, setVolume] = useState(-12);
 
   Tone.Destination.volume.value = volume;
-
-  console.log("composition", composition);
 
   const [currentStep, setStep] = useState(0);
   const buffers = useRef(null);
@@ -284,17 +284,19 @@ function DrumMachine() {
               onCompositionChange={onCompositionChange}
             />
             <div className="Indicator">
-              {[...Array(16)].map((_, i) => {
-                return (
-                  <input
-                    className="check"
-                    type="checkbox"
-                    readOnly
-                    checked={i === currentStep}
-                    key={i}
-                  />
-                );
-              })}
+              <label className="customCheckbox">
+                {[...Array(16)].map((_, i) => {
+                  return (
+                    <input
+                      className="check"
+                      type="checkbox"
+                      readOnly
+                      checked={i === currentStep}
+                      key={i}
+                    />
+                  );
+                })}
+              </label>
             </div>
           </div>
           <br></br>
@@ -373,6 +375,7 @@ function DrumMachine() {
           ) : (
             <p> Please login to save you beat </p>
           )}
+          <p>{message?.text} </p>
         </div>
       </div>
     </div>

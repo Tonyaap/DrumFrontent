@@ -13,19 +13,21 @@ function Kick({ composition, onCompositionChange }) {
       {" "}
       <div className="kick">
         <ul>
-          Kick
-          {[...Array(16)].map((_, i) => {
-            return (
-              <input
-                className="checkbox"
-                key={`kick${i}`}
-                type="checkbox"
-                id="customcheck"
-                checked={composition[i]}
-                onChange={() => updateComposition(i)}
-              />
-            );
-          })}{" "}
+          <label className="customCheckbox">
+            Kick
+            {[...Array(16)].map((_, i) => {
+              return (
+                <input
+                  className="checkbox"
+                  key={`kick${i}`}
+                  type="checkbox"
+                  id="customcheck"
+                  checked={composition[i]}
+                  onChange={() => updateComposition(i)}
+                />
+              );
+            })}{" "}
+          </label>
         </ul>
       </div>
     </div>

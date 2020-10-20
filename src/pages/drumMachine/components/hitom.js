@@ -12,18 +12,20 @@ function HiTom({ composition, onCompositionChange }) {
     <div>
       <div className="hitom">
         <ul>
-          HiTom
-          {[...Array(16)].map((_, i) => {
-            return (
-              <input
-                className="check"
-                key={`hitom${i}`}
-                type="checkbox"
-                checked={composition[i]}
-                onChange={() => updateComposition(i)}
-              />
-            );
-          })}
+          <label className="customCheckbox">
+            HiTom
+            {[...Array(16)].map((_, i) => {
+              return (
+                <input
+                  className="check"
+                  key={`hitom${i}`}
+                  type="checkbox"
+                  checked={composition[i]}
+                  onChange={() => updateComposition(i)}
+                />
+              );
+            })}
+          </label>
         </ul>
       </div>
     </div>

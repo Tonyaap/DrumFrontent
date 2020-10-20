@@ -13,18 +13,20 @@ function Rim({ composition, onCompositionChange }) {
       <div className="rim">
         <ul>
           {" "}
-          Rim
-          {[...Array(16)].map((_, i) => {
-            return (
-              <input
-                className="check"
-                key={`rim${i}`}
-                type="checkbox"
-                checked={composition[i]}
-                onChange={() => updateComposition(i)}
-              />
-            );
-          })}
+          <label className="customCheckbox">
+            Rim
+            {[...Array(16)].map((_, i) => {
+              return (
+                <input
+                  className="check"
+                  key={`rim${i}`}
+                  type="checkbox"
+                  checked={composition[i]}
+                  onChange={() => updateComposition(i)}
+                />
+              );
+            })}
+          </label>
         </ul>
       </div>
     </div>

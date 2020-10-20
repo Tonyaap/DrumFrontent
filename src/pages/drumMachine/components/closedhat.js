@@ -12,18 +12,20 @@ function ClosedHat({ composition, onCompositionChange }) {
     <div>
       <div className="closedhat">
         <ul>
-          ClosedHat
-          {[...Array(16)].map((_, i) => {
-            return (
-              <input
-                className="check"
-                key={`closedhat${i}`}
-                type="checkbox"
-                checked={composition[i]}
-                onChange={() => updateComposition(i)}
-              />
-            );
-          })}
+          <label className="customCheckbox">
+            ClosedHat
+            {[...Array(16)].map((_, i) => {
+              return (
+                <input
+                  className="check"
+                  key={`closedhat${i}`}
+                  type="checkbox"
+                  checked={composition[i]}
+                  onChange={() => updateComposition(i)}
+                />
+              );
+            })}
+          </label>
         </ul>
       </div>
     </div>
