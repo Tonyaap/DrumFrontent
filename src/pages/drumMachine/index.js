@@ -349,6 +349,7 @@ function DrumMachine() {
           </select>
           <button className="button1"> Load composition </button>
           <br></br>
+
           <input
             className="input"
             type="compsitionName"
@@ -356,17 +357,22 @@ function DrumMachine() {
               setNewComposionName(event.target.value);
             }}
           />
-          <button
-            className="button1"
-            onClick={() => {
-              dispatch(
-                createComposition(userId.id, newCompositionName, composition)
-              );
-            }}
-          >
-            {" "}
-            Save composition{" "}
-          </button>
+
+          {localStorage.token ? (
+            <button
+              className="button1"
+              onClick={() => {
+                dispatch(
+                  createComposition(userId.id, newCompositionName, composition)
+                );
+              }}
+            >
+              {" "}
+              Save composition{" "}
+            </button>
+          ) : (
+            <p> Please login to save you beat </p>
+          )}
         </div>
       </div>
     </div>
