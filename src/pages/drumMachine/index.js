@@ -87,14 +87,22 @@ function DrumMachine() {
 
     buffers.current = new Tone.Buffers(
       {
-        kick: process.env.PUBLIC_URL + "/drumkits/808/808-Kick.wav",
-        snare: process.env.PUBLIC_URL + "/drumkits/808/808-Snare.wav",
-        closedhat: process.env.PUBLIC_URL + "/drumkits/808/808-HiHats.wav",
-        openhat: process.env.PUBLIC_URL + "/drumkits/808/808-OpenHiHats.wav",
-        hitom: process.env.PUBLIC_URL + "/drumkits/808/808-HiTom.wav",
-        lotom: process.env.PUBLIC_URL + "/drumkits/808/808-LoTom.wav",
-        rim: process.env.PUBLIC_URL + "/drumkits/808/808-Rim.wav",
-        cowbell: process.env.PUBLIC_URL + "/drumkits/808/808-Cowbell.wav",
+        kick:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-Kick.wav",
+        snare:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-Snare.wav",
+        closedhat:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-HiHats.wav",
+        openhat:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-OpenHiHats.wav",
+        hitom:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-HiTom.wav",
+        lotom:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-LoTom.wav",
+        rim:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-Rim.wav",
+        cowbell:
+          "https://tonyaapdrumsamples.s3.eu-west-3.amazonaws.com/808-Cowbell.wav",
       },
       function () {
         // setLoaded(true);
