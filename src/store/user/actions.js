@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
+import { selectToken, selectUser } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -105,3 +105,38 @@ export const getUserWithStoredToken = () => {
     }
   };
 };
+
+export const createComposition = (userId, compositionName, composition) => {
+  console.log("CREATECOMPOSITION", userId, compositionName, composition);
+  return async (dispatch, getState) => {
+    try {
+      const token = selectToken(getState());
+      console.log("token?", token);
+      console.log("userId", userId);
+      const { composition } = selectUser(getState());
+      console.log("composition", composition);
+      const response = await axios.post(
+        `${apiUrl}/compositions/${userId}`,
+        {
+          compositionName,
+          composition,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      dispatch(postComposition(response.data.composition));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export function postComposition(newComposition) {
+  return {
+    type: "POST_COMPOSITION",
+    payload: newComposition,
+  };
+}

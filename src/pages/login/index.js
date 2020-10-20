@@ -19,6 +19,7 @@ export default function SignUp() {
 
   useEffect(() => {
     if (token !== null) {
+      console.log("No Token");
       history.push("/");
     }
   }, [token, history]);

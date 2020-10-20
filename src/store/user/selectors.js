@@ -3,6 +3,7 @@ export const selectUser = (state) => state.user;
 export const selectCompositions = (state) => state.user.compositions;
 export const selectCompositionNames = (state) =>
   state.user.compositions.map((composition) => {
+    console.log("compositionSelector", composition);
     return { id: composition.id, compositionName: composition.compositionName };
   });
 export const selectCompositionById = (id) => (state) => {

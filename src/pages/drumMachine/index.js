@@ -9,18 +9,28 @@ import LoTom from "./components/lotom";
 import Rim from "./components/rim";
 import Cymbal from "./components/crash";
 import { Player } from "tone";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   selectCompositions,
   selectCompositionNames,
   selectCompositionById,
+  selectUser,
 } from "../../store/user/selectors";
+import { createComposition } from "../../store/user/actions";
 
 function DrumMachine() {
-  const compositions = useSelector(selectCompositions);
   const compositionNames = useSelector(selectCompositionNames);
+  const userId = useSelector(selectUser);
   const [filterById, setFilterById] = useState(0);
   const compositionById = useSelector(selectCompositionById(filterById));
+  const [newCompositionName, setNewComposionName] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(createComposition());
+  }, [dispatch]);
+
+  console.log("newName", newCompositionName);
 
   const initialStepState = {
     kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
@@ -35,10 +45,11 @@ function DrumMachine() {
 
   const [composition, setComposition] = useState(initialStepState);
   const [tempo, setTempo] = useState(60);
-  // const [loaded, setLoaded] = useState(false);
   const [volume, setVolume] = useState(-12);
 
   Tone.Destination.volume.value = volume;
+
+  console.log("composition", composition);
 
   const [currentStep, setStep] = useState(0);
   const buffers = useRef(null);
@@ -339,8 +350,24 @@ function DrumMachine() {
           </select>
           <button className="button1"> Load composition </button>
           <br></br>
-          <input className="input" type="compsitionName" />
-          <button className="button1"> Save composition </button>
+          <input
+            className="input"
+            type="compsitionName"
+            onChange={(event) => {
+              setNewComposionName(event.target.value);
+            }}
+          />
+          <button
+            className="button1"
+            onClick={() => {
+              dispatch(
+                createComposition(userId.id, newCompositionName, composition)
+              );
+            }}
+          >
+            {" "}
+            Save composition{" "}
+          </button>
         </div>
       </div>
     </div>
