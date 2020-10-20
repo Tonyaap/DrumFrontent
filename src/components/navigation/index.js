@@ -9,9 +9,10 @@ import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 
 export default function Navigation() {
-  // const token = useSelector(selectToken);
+  const token = useSelector(selectToken);
 
-  const loginLogoutControls = localStorage.token ? <LoggedIn /> : <LoggedOut />;
+  const loginLogoutControls =
+    token || localStorage.token ? <LoggedIn /> : <LoggedOut />;
 
   return (
     <Navbar className="navigation" variant="light">

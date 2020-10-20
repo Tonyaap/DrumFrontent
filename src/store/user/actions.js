@@ -113,7 +113,7 @@ export const createComposition = (userId, compositionName, composition) => {
       const token = selectToken(getState());
       console.log("token?", token);
       console.log("userId", userId);
-      const { composition } = selectUser(getState());
+
       console.log("composition", composition);
       const response = await axios.post(
         `${apiUrl}/compositions/${userId}`,
@@ -127,7 +127,7 @@ export const createComposition = (userId, compositionName, composition) => {
           },
         }
       );
-      dispatch(postComposition(response.data.composition));
+      dispatch(postComposition(response.data.newComposition));
     } catch (e) {
       console.log(e);
     }
