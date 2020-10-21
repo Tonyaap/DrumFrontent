@@ -26,8 +26,14 @@ function DrumMachine() {
   const [filterById, setFilterById] = useState(0);
   const compositionById = useSelector(selectCompositionById(filterById));
   const [newCompositionName, setNewComposionName] = useState("");
+  let [fx, setFx] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
   const message = useSelector(selectMessage);
   const dispatch = useDispatch();
+
+  // console.log("fx", fx);
+
+  // console.log("loaded", loaded);
 
   useEffect(() => {
     dispatch(createComposition());
@@ -62,6 +68,9 @@ function DrumMachine() {
   const player8 = useRef(null);
   let index = 0;
 
+  // console.log("buffers", buffers.current);
+  // console.log("player1", player1.current);
+
   async function startPlaying() {
     await Tone.start();
     Tone.Transport.start();
@@ -72,6 +81,12 @@ function DrumMachine() {
 
     console.log("audio stopped");
   }
+
+  // const reverb = new Tone.Reverb(1.5, 0.01, 1);
+
+  // const filter = new Tone.Filter(1000, "highpass");
+
+  // Tone.Destination.chain(reverb, filter);
 
   useEffect(() => {
     Tone.Transport.scheduleRepeat((time) => {
@@ -110,7 +125,8 @@ function DrumMachine() {
       }
     );
     return () => {
-      // console.log("cleanup function");
+      // buffers.current = null;
+      console.log("cleanup function");
     };
   }, []);
 
@@ -214,10 +230,10 @@ function DrumMachine() {
       closedhat: compositionById.closedhat?.map((step) => {
         return parseInt(step);
       }),
-      openhat: compositionById.closedhat?.map((step) => {
+      openhat: compositionById.openhat?.map((step) => {
         return parseInt(step);
       }),
-      hitom: compositionById.closedhat?.map((step) => {
+      hitom: compositionById.hitom?.map((step) => {
         return parseInt(step);
       }),
       lotom: compositionById.lotom?.map((step) => {
@@ -317,6 +333,9 @@ function DrumMachine() {
             Stop
             <Stopbutton />
           </button>
+
+          {/* <button onClick={() => setFx((fx = !fx))}> FX </button> */}
+
           <br></br>
           <br></br>
 
@@ -344,7 +363,6 @@ function DrumMachine() {
               setNewComposionName(event.target.value);
             }}
           />
-
           {localStorage.token ? (
             <button
               className="button1"
@@ -354,8 +372,7 @@ function DrumMachine() {
                 );
               }}
             >
-              {" "}
-              Save composition{" "}
+              Save composition
             </button>
           ) : (
             <p> Please login to save you beat </p>
