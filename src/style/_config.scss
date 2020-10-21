@@ -38,6 +38,14 @@ $font-family-base: "Aladin", serif;
   color: red;
 }
 
+.stepSequencer {
+  border: 15px solid black;
+  margin-top: 50px;
+  margin-left: 250px;
+  margin-right: 250px;
+  padding: 10px;
+}
+
 .indicator {
   text-align: right;
   margin-right: 33%;
@@ -91,15 +99,6 @@ $font-family-base: "Aladin", serif;
   border-radius: 50px;
   border-color: #494949 !important;
   transition: all 0.3s ease 0s;
-}
-
-.stepSequencer {
-  border: 15px solid black;
-  margin-top: 50px;
-  margin-left: 250px;
-  margin-right: 250px;
-
-  padding: 10px;
 }
 
 input[type="range"] {
@@ -189,7 +188,6 @@ input[type="checkbox"] {
   -o-appearance: none;
   appearance: none;
   border: 1px solid #34495e;
-
   outline: none;
   transition-duration: 0.3s;
   background-color: #9f34e6;
@@ -198,6 +196,7 @@ input[type="checkbox"] {
 
 .customCheckbox > input:checked {
   border: 1px solid #41b883;
+
   background-color: #00ff4c;
 }
 

@@ -8,7 +8,8 @@ export const selectCompositionNames = (state) =>
   });
 export const selectCompositionById = (id) => (state) => {
   const compositionById = state.user.compositions.find((composition) => {
-    return composition.id == id;
+    console.log("composition ID", composition.id, "ID", id);
+    return composition.id === parseInt(id);
   });
 
   return compositionById || {};
