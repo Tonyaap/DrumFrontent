@@ -4,7 +4,7 @@ function LoTom({ composition, onCompositionChange }) {
   const updateComposition = (id) => {
     const newComposition = [...composition];
     newComposition[id] = newComposition[id] === 1 ? 0 : 1;
-    console.log("lotom", newComposition);
+
     onCompositionChange("lotom", newComposition);
   };
 

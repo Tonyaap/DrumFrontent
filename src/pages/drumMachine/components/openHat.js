@@ -4,7 +4,7 @@ function OpenHat({ composition, onCompositionChange }) {
   const updateComposition = (id) => {
     const newComposition = [...composition];
     newComposition[id] = newComposition[id] === 1 ? 0 : 1;
-    console.log("openhat", newComposition);
+
     onCompositionChange("openhat", newComposition);
   };
 

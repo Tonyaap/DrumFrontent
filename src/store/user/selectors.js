@@ -3,12 +3,10 @@ export const selectUser = (state) => state.user;
 export const selectCompositions = (state) => state.user.compositions;
 export const selectCompositionNames = (state) =>
   state.user.compositions.map((composition) => {
-    console.log("compositionSelector", composition);
     return { id: composition.id, compositionName: composition.compositionName };
   });
 export const selectCompositionById = (id) => (state) => {
   const compositionById = state.user.compositions.find((composition) => {
-    console.log("composition ID", composition.id, "ID", id);
     return composition.id === parseInt(id);
   });
 

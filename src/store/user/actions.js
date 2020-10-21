@@ -41,10 +41,8 @@ export const signUp = (name, email, password) => {
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
-        // console.log(error.response.data.message);
         dispatch(setMessage("danger", true, error.response.data.message));
       } else {
-        // console.log(error.message);
         dispatch(setMessage("danger", true, error.message));
       }
       dispatch(appDoneLoading());
@@ -96,14 +94,9 @@ export const getUserWithStoredToken = () => {
 };
 
 export const createComposition = (userId, compositionName, composition) => {
-  console.log("CREATECOMPOSITION", userId, compositionName, composition);
   return async (dispatch, getState) => {
     try {
       const token = selectToken(getState());
-      console.log("token?", token);
-      console.log("userId", userId);
-
-      console.log("composition", composition);
       const response = await axios.post(
         `${apiUrl}/compositions/${userId}`,
         {

@@ -17,6 +17,8 @@ import {
 } from "../../store/user/selectors";
 import { selectMessage } from "../../store/appState/selectors";
 import { createComposition } from "../../store/user/actions";
+import StartButton from "./components/Startbutton";
+import Stopbutton from "./components/Stopbutton";
 
 function DrumMachine() {
   const compositionNames = useSelector(selectCompositionNames);
@@ -30,8 +32,6 @@ function DrumMachine() {
   useEffect(() => {
     dispatch(createComposition());
   }, [dispatch]);
-
-  console.log("newName", newCompositionName);
 
   const initialStepState = {
     kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
@@ -69,12 +69,13 @@ function DrumMachine() {
   }
   async function stopPlaying() {
     await Tone.Transport.stop();
+
     console.log("audio stopped");
   }
 
   useEffect(() => {
-    Tone.Transport.scheduleRepeat(() => {
-      repeat();
+    Tone.Transport.scheduleRepeat((time) => {
+      repeat(time);
     }, "16n");
     player1.current = new Player().toDestination();
     player2.current = new Player().toDestination();
@@ -142,7 +143,7 @@ function DrumMachine() {
     player8.current.buffer = buffers.current.get("cowbell");
   }
 
-  function repeat() {
+  function repeat(time) {
     let step = index % 16;
 
     let kickInputs = document.querySelector(
@@ -170,28 +171,28 @@ function DrumMachine() {
     );
 
     if (kickInputs.checked) {
-      player1.current.start();
+      player1.current.start(time);
     }
     if (snareInputs.checked) {
-      player2.current.start();
+      player2.current.start(time);
     }
     if (closedHatInputs.checked) {
-      player3.current.start();
+      player3.current.start(time);
     }
     if (openHatInputs.checked) {
-      player4.current.start();
+      player4.current.start(time);
     }
     if (hiTomInputs.checked) {
-      player5.current.start();
+      player5.current.start(time);
     }
     if (loTomInputs.checked) {
-      player6.current.start();
+      player6.current.start(time);
     }
     if (rimInputs.checked) {
-      player7.current.start();
+      player7.current.start(time);
     }
     if (cymbalInputs.checked) {
-      player8.current.start();
+      player8.current.start(time);
     }
 
     index++;
@@ -310,35 +311,11 @@ function DrumMachine() {
           <br></br>
           <button className="button2" onClick={startPlaying}>
             Start
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              className="bi bi-play"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"
-              />
-            </svg>
+            <StartButton />
           </button>
           <button className="button2" onClick={stopPlaying}>
             Stop
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              className="bi bi-stop"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3.5 5A1.5 1.5 0 0 1 5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5zM5 4.5a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5H5z"
-              />
-            </svg>
+            <Stopbutton />
           </button>
           <br></br>
           <br></br>
