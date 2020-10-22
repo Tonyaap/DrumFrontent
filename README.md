@@ -1,26 +1,26 @@
----
-Drum_Machine | Make your own beats on the fly!
+# Drum_Machine | Make your own beats on the fly!
 
-What this app is about
+## What this app is about
 
-<link> Click here for a working version <link>
+Click [here](URL HERE) for a working version
 
 Drum_Machine is about expressing your musical creativity in your web-browser!
 This app allows users to create and save beats.
 for the sounds i've used one of the most iconic drum computers of all time, the legendary roland-808.
+
 ---
 
 ## Table of contents
 
-- App demo
-- Used technologies
-- Goals for this project
-- User Stories
-- Project board
-- WireFrame
-- Datamodel
-- Git version control
-- Backend server Repo
+- [App demo](#APP-DEMO)
+- [Used technologies](#Used-technologies-and-concepts)
+- [Goals for this project](#Goals-for-this-project)
+- [User Stories](#User-stories)
+- [Project board](#Project-board)
+- [WireFrame](#Wireframe)
+- [Datamodel](#Datamodel)
+- [Git version control](#Git-version-control)
+- [Backend server repo](#Backend-server-repo)
 
 ---
 
@@ -42,7 +42,7 @@ GIF OF USING THE APP
 
 ---
 
-Goals for this project
+## Goals for this project
 
 ---
 
@@ -61,7 +61,7 @@ After going through a though and intensive (but super fun!) coding bootcamp of 9
 
   ***
 
-  User Stories
+  ## User stories
 
   ***
 
@@ -77,15 +77,15 @@ Please let me know!
 
 ---
 
-Project Board
+## Project board
 
 ---
 
-<link> Go to project board <link>
+[Go to project board](https://github.com/Tonyaap/DrumFrontent/projects/1)
 
 ---
 
-WireFrame
+## WireFrame
 
 ---
 
@@ -93,7 +93,7 @@ Go to wireframs
 
 ---
 
-Datamodel
+## Datamodel
 
 ---
 
@@ -101,7 +101,7 @@ Go to datamodel
 
 ---
 
-Git version control
+## Git version control
 
 ---
 
@@ -112,7 +112,7 @@ How i used Git.
 
 ---
 
-Backend server Repo
+## Backend server repo
 
 ---
 

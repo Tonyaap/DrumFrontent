@@ -1,25 +1,23 @@
 import React from "react";
 
-function Snare({ composition, onCompositionChange }) {
+function Sequencer({ composition, onCompositionChange, instrument }) {
   const updateComposition = (id) => {
     const newComposition = [...composition];
     newComposition[id] = newComposition[id] === 1 ? 0 : 1;
-
-    onCompositionChange("snare", newComposition);
+    onCompositionChange(instrument, newComposition);
   };
 
   return (
     <div>
-      <div className="snare">
+      <div className={instrument}>
         <ul>
-          {" "}
           <label className="customCheckbox">
-            Snare
+            {instrument}
             {[...Array(16)].map((_, i) => {
               return (
                 <input
                   className="check"
-                  key={`snare${i}`}
+                  key={`${instrument}${i}`}
                   type="checkbox"
                   checked={composition[i]}
                   onChange={() => updateComposition(i)}
@@ -33,4 +31,4 @@ function Snare({ composition, onCompositionChange }) {
   );
 }
 
-export default Snare;
+export default Sequencer;
