@@ -21,6 +21,7 @@ for the sounds i've used one of the most iconic drum computers of all time, the 
 - [Datamodel](#Datamodel)
 - [Git version control](#Git-version-control)
 - [Backend server repo](#Backend-server-repo)
+- [Reflection](#Reflection)
 
 ---
 
@@ -119,3 +120,23 @@ How i used Git.
 For the backend I used an Express server and user Sequelize to manage the Postgress database.
 
 <link> Backend repo <link>
+
+---
+
+## Reflection
+
+---
+
+At the start of this project I just finished 9 weeks of intensive coding training at the Codaisseur bootcamp.
+
+For my Drum_Machine I wanted to use some of the things that i've practiced during the Bootcamp. for example JS, React, Redux, Express etc..
+
+My background lies in music and that is how i came up with the idea to create a step-sequencer. I found out about the Tone-Js library and wanted to use it with react and react-redux so users could save their creations. During the process of building my app I discovered that for many reasons Tone-Js and React don't work together very well. Fortunately there is very clear documentation on how to use [Tone-Js](https://tonejs.github.io/docs/14.7.58/index.html), Unfortunately with react, most of the examples don't work. I had to figure out my ways of working around these problems but got most issues fixed in the end.
+
+In the future I hope to keep improving my Drum_Machine and make more features like adding FX.
+
+The last three months have been a rollercoaster ride.
+From working for one of the largest festival organizitions in the world to Covid-19 to losing my job to start learning how to code!
+Luckily I can say i'm glad this happened or else I probably wouldn't have started coding.
+
+---

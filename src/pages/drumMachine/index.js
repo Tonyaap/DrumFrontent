@@ -47,7 +47,6 @@ function DrumMachine() {
   const [tempo, setTempo] = useState(60);
   const [volume, setVolume] = useState(-12);
   const [currentStep, setStep] = useState(0);
-
   const userId = useSelector(selectUser);
   const compositionNames = useSelector(selectCompositionNames);
   const compositionById = useSelector(selectCompositionById(filterById));
@@ -57,6 +56,7 @@ function DrumMachine() {
   const players = useRef({});
 
   Tone.Destination.volume.value = volume;
+
   let index = 0;
 
   async function startPlaying() {
@@ -151,10 +151,6 @@ function DrumMachine() {
   }, [filterById]);
 
   console.log(compositionById);
-
-  // useEffect(() => {
-  //   setComposition(compositionById);
-  // }, [filterById]);
 
   return (
     <div className="background">

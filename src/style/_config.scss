@@ -9,20 +9,25 @@ $font-family-base: "Aladin", serif;
 .App {
   text-align: center;
   font-size: large;
-
   background-image: url("https://wallpapercave.com/wp/wp2343941.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
   color: white;
   padding-top: 10px;
   padding-bottom: 100px;
 }
 
+.welcome {
+  display: inline;
+  margin-right: 20px !important;
+}
+
 .singlenav {
+  display: inline;
   color: white;
+  padding-left: 100px;
 }
 
 .singlenav:hover {
@@ -30,7 +35,8 @@ $font-family-base: "Aladin", serif;
 }
 
 .login {
-  text-align: right;
+  display: inline;
+  margin-right: 20px !important;
 }
 
 .makenoise {
@@ -74,6 +80,30 @@ $font-family-base: "Aladin", serif;
 }
 
 .button1:hover {
+  color: #ffffff !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+}
+
+.logoutbutton {
+  color: black !important;
+  text-transform: lowercase;
+  background: linear-gradient(
+    115deg,
+    rgba(149, 122, 87, 1) 8%,
+    rgba(204, 3, 154, 0.8790703781512605) 32%,
+    rgba(0, 112, 159, 1) 96%
+  );
+  padding: 5px;
+  border: 4px solid #7a04eb !important;
+  border-radius: 6px;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.logoutbutton:hover {
   color: #ffffff !important;
   border-radius: 50px;
   border-color: #494949 !important;

@@ -1,11 +1,12 @@
 import React from "react";
-
-import NavbarItem from "./NavbarItem";
+import { NavLink } from "react-router-dom";
 
 export default function LoggedOut() {
   return (
     <>
-      <NavbarItem path="/login" linkText="Login" />
+      <NavLink to="/login" activeClassName="selected">
+        <ul className="singlenav">Login</ul>
+      </NavLink>
     </>
   );
 }

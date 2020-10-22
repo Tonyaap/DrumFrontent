@@ -9,11 +9,14 @@ export default function LoggedIn() {
   const user = useSelector(selectUser);
   return (
     <>
-      <button className="button1" onClick={() => dispatch(logOut())}>
-        Logout
-      </button>
-
-      <Nav.Item style={{ color: "white" }}>Welcome Back: {user.name}</Nav.Item>
+      <span>
+        <ul className="welcome" style={{ color: "white" }}>
+          Welcome Back: {user.name}
+        </ul>
+        <button className="logoutbutton" onClick={() => dispatch(logOut())}>
+          Logout
+        </button>
+      </span>
     </>
   );
 }

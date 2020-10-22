@@ -1,0 +1,66 @@
+button.FullscreenMenuToggler {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: none;
+  display: flex;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  color: red;
+  transition: all 0.2s ease;
+}
+
+.FullscreenMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-left: 20px;
+
+  background: black;
+  color: white;
+
+  font-size: 2rem;
+}
+
+.FullscreenMenu ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.FullscreenMenu li {
+  display: block;
+  margin: 0.5rem;
+
+  animation: slideInFromLeft 0.5s ease backwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.FullscreenMenu a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.FullscreenMenu a:hover {
+  text-decoration: underline;
+}

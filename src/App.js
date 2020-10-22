@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { useDispatch } from "react-redux";
+import FullscreenMenu from "./components/navigation/FullscreenMenu";
 
 import "./style/global.scss";
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
+      <FullscreenMenu />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/drummachine" component={DrumMachine} />
