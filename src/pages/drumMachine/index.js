@@ -53,6 +53,7 @@ function DrumMachine() {
   const [composition, setComposition] = useState(initialStepState);
   const [tempo, setTempo] = useState(60);
   const [volume, setVolume] = useState(-12);
+  const [hpfFreq, setHpfFreq] = useState(0);
 
   Tone.Destination.volume.value = volume;
 
@@ -84,9 +85,9 @@ function DrumMachine() {
 
   // const reverb = new Tone.Reverb(1.5, 0.01, 1);
 
-  // const filter = new Tone.Filter(1000, "highpass");
+  const hpf = new Tone.Filter(hpfFreq, "highpass");
 
-  // Tone.Destination.chain(reverb, filter);
+  Tone.Destination.chain(hpf);
 
   useEffect(() => {
     Tone.Transport.scheduleRepeat((time) => {
@@ -272,6 +273,18 @@ function DrumMachine() {
           }}
         />{" "}
         BPM = {tempo}
+        <br></br>
+        <br></br>
+        <input
+          type="range"
+          step="1"
+          min={0}
+          max={15000}
+          onChange={(event) => {
+            setHpfFreq(event.target.value);
+          }}
+        />{" "}
+        hpf = {hpfFreq}
         <br></br>
         <div className="drums">
           <br />
