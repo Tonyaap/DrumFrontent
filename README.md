@@ -1,68 +1,121 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+Drum_Machine | Make your own beats on the fly!
 
-## Available Scripts
+What this app is about
 
-In the project directory, you can run:
+<link> Click here for a working version <link>
 
-### `npm start`
+Drum_Machine is about expressing your musical creativity in your web-browser!
+This app allows users to create and save beats.
+for the sounds i've used one of the most iconic drum computers of all time, the legendary roland-808.
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- App demo
+- Used technologies
+- Goals for this project
+- User Stories
+- Project board
+- WireFrame
+- Datamodel
+- Git version control
+- Backend server Repo
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## APP DEMO
 
-### `npm run build`
+GIF OF USING THE APP
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Used technologies and concepts
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React for UI building
+- Redux for state management
+- Authentication
+- Express as web app framework
+- AWS S3 for hosting audio files
+- Sequelize as ORM
+- ToneJs library as DAW (digital audio workstation)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Goals for this project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+After going through a though and intensive (but super fun!) coding bootcamp of 9 weeks it's time to put what i've learned to the test. The goal for this project was to build a full-stack-app and explore (for me) new technologies. Lot's of reading forums, watching videos and trial and error.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Practice full-stack app development
+- Build a working prototype in 2 weeks
+- Apply the things i've learned in the bootcamp
+- Learn and use the Tone.Js library
+- Practice development skills like:
 
-## Learn More
+  - Making wireframes
+  - Data model design
+  - Write user stories
+  - Use git version control
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ***
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  User Stories
 
-### Code Splitting
+  ***
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+  - As a visitor of Drum_Machine, I am able to sign up and log in as a user. I must register before I can save my compositions
+  - The compositions I made can be saved by giving them a name
+  - I can see compositions I've saved in the past and load them so I can listen to them again
+  - I am able to play around with the sounds, adjust speed, volume and use Effects.
+  - Planned: Share your compositions with other users,
+  - Planned: Change Individual sounds.
 
-### Analyzing the Bundle Size
+The project is still in progess and I'm planning to improve and add features over time. Any suggestions or feedback?
+Please let me know!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+---
 
-### Making a Progressive Web App
+Project Board
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+---
 
-### Advanced Configuration
+<link> Go to project board <link>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+---
 
-### Deployment
+WireFrame
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+---
 
-### `npm run build` fails to minify
+Go to wireframs
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+---
+
+Datamodel
+
+---
+
+Go to datamodel
+
+---
+
+Git version control
+
+---
+
+How i used Git.
+
+- Write clear commit messages
+- Work on the development branch
+
+---
+
+Backend server Repo
+
+---
+
+For the backend I used an Express server and user Sequelize to manage the Postgress database.
+
+<link> Backend repo <link>

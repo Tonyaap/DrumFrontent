@@ -26,7 +26,11 @@ $font-family-base: "Aladin", serif;
 }
 
 .singlenav:hover {
-  color: white;
+  color: rgb(255, 0, 0);
+}
+
+.login {
+  text-align: right;
 }
 
 .makenoise {
@@ -39,17 +43,16 @@ $font-family-base: "Aladin", serif;
 }
 
 .stepSequencer {
-  border: 15px solid black;
-  margin-top: 50px;
-  margin-left: 250px;
-  margin-right: 250px;
   padding: 10px;
+  // display: inline-block;
 }
 
 .indicator {
   text-align-last: right;
-  margin-right: 33%;
-  margin-left: 10%;
+  display: inline-block;
+  margin-bottom: 50px;
+  // margin-right: 33%;
+  // margin-left: 10%;
 }
 
 .button1 {
@@ -174,6 +177,7 @@ input[type="checkbox"] {
   display: inline-flex;
   cursor: pointer;
   position: relative;
+  margin-right: 80px;
 }
 
 .customCheckbox > span {

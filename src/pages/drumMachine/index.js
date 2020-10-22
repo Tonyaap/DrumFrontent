@@ -26,14 +26,9 @@ function DrumMachine() {
   const [filterById, setFilterById] = useState(0);
   const compositionById = useSelector(selectCompositionById(filterById));
   const [newCompositionName, setNewComposionName] = useState("");
-  let [fx, setFx] = useState(false);
   // const [loaded, setLoaded] = useState(false);
   const message = useSelector(selectMessage);
   const dispatch = useDispatch();
-
-  // console.log("fx", fx);
-
-  // console.log("loaded", loaded);
 
   useEffect(() => {
     dispatch(createComposition());
@@ -53,7 +48,7 @@ function DrumMachine() {
   const [composition, setComposition] = useState(initialStepState);
   const [tempo, setTempo] = useState(60);
   const [volume, setVolume] = useState(-12);
-  const [hpfFreq, setHpfFreq] = useState(0);
+  // const [hpfFreq, setHpfFreq] = useState(0);
 
   Tone.Destination.volume.value = volume;
 
@@ -69,9 +64,6 @@ function DrumMachine() {
   const player8 = useRef(null);
   let index = 0;
 
-  // console.log("buffers", buffers.current);
-  // console.log("player1", player1.current);
-
   async function startPlaying() {
     await Tone.start();
     Tone.Transport.start();
@@ -83,11 +75,9 @@ function DrumMachine() {
     console.log("audio stopped");
   }
 
-  // const reverb = new Tone.Reverb(1.5, 0.01, 1);
+  // const hpf = new Tone.Filter(hpfFreq, "highpass");
 
-  const hpf = new Tone.Filter(hpfFreq, "highpass");
-
-  Tone.Destination.chain(hpf);
+  // Tone.Destination.chain(hpf);
 
   useEffect(() => {
     Tone.Transport.scheduleRepeat((time) => {
@@ -274,8 +264,7 @@ function DrumMachine() {
         />{" "}
         BPM = {tempo}
         <br></br>
-        <br></br>
-        <input
+        {/* <input
           type="range"
           step="1"
           min={0}
@@ -284,7 +273,7 @@ function DrumMachine() {
             setHpfFreq(event.target.value);
           }}
         />{" "}
-        hpf = {hpfFreq}
+        hpf = {hpfFreq} */}
         <br></br>
         <div className="drums">
           <br />
@@ -346,12 +335,8 @@ function DrumMachine() {
             Stop
             <Stopbutton />
           </button>
-
-          {/* <button onClick={() => setFx((fx = !fx))}> FX </button> */}
-
           <br></br>
           <br></br>
-
           <select
             onChange={(event) => {
               setFilterById(event.target.value);
@@ -368,7 +353,6 @@ function DrumMachine() {
           </select>
           <button className="button1"> Load composition </button>
           <br></br>
-
           <input
             className="input"
             type="compsitionName"

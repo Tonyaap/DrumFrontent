@@ -24,7 +24,7 @@ export default function Navigation() {
           <ul className="singlenav">DrumMachine</ul>
         </NavLink>
         <Nav style={{ width: "100%" }} fill>
-          {loginLogoutControls}
+          <ul className="login"> {loginLogoutControls}</ul>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
