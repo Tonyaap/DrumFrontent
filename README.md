@@ -90,7 +90,7 @@ Please let me know!
 
 ---
 
-[Go to wireframs](https://github.com/Tonyaap/DrumFrontent/blob/master/Wireframe-DrumMachine.svg)
+[Go to wireframe](https://github.com/Tonyaap/DrumFrontent/blob/master/Wireframe-DrumMachine.svg)
 
 ---
 
