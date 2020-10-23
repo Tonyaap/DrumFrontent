@@ -27,7 +27,8 @@ for the sounds i've used one of the most iconic drum computers of all time, the 
 
 ## APP DEMO
 
-GIF OF USING THE APP
+
+![GIF OF USING THE APP](https://github.com/Tonyaap/DrumFrontent/blob/master/DrumGif.gif)
 
 ---
 
