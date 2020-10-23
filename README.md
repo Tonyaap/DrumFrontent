@@ -2,7 +2,7 @@
 
 ## What this app is about
 
-Click [here](URL HERE) for a working version
+Click [here](https://lucid-poincare-293a24.netlify.app/) for a working version
 
 Drum_Machine is about expressing your musical creativity in your web-browser!
 This app allows users to create and save beats.
@@ -90,7 +90,7 @@ Please let me know!
 
 ---
 
-[Go to wireframs](https://github.com/Tonyaap/DrumFrontent/blob/master/Wireframe-DrumMachine.svg)
+[Go to wireframe](https://github.com/Tonyaap/DrumFrontent/blob/master/Wireframe-DrumMachine.svg)
 
 ---
 
