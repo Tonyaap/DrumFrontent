@@ -102,7 +102,6 @@ function DrumMachine() {
   }, [tempo]);
 
   const onCompositionChange = (instrument, newState) => {
-    console.log("hi", newState);
     setComposition({ ...composition, [instrument]: newState });
   };
 
@@ -122,6 +121,8 @@ function DrumMachine() {
   }
 
   useEffect(() => {
+    //Loading compostion into local state from redux, to make it easier to manipulate
+    //The composition interacts with local refsm so managing it here instead of redux
     setComposition({
       kick: compositionById.kick?.map((step) => {
         return parseInt(step);
@@ -149,8 +150,6 @@ function DrumMachine() {
       }),
     });
   }, [filterById]);
-
-  console.log(compositionById);
 
   return (
     <div className="background">
