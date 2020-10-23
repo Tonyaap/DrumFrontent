@@ -1,68 +1,142 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Drum_Machine | Make your own beats on the fly!
 
-## Available Scripts
+## What this app is about
 
-In the project directory, you can run:
+Click [here](URL HERE) for a working version
 
-### `npm start`
+Drum_Machine is about expressing your musical creativity in your web-browser!
+This app allows users to create and save beats.
+for the sounds i've used one of the most iconic drum computers of all time, the legendary roland-808.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Table of contents
 
-### `npm test`
+- [App demo](#APP-DEMO)
+- [Used technologies](#Used-technologies-and-concepts)
+- [Goals for this project](#Goals-for-this-project)
+- [User Stories](#User-stories)
+- [Project board](#Project-board)
+- [WireFrame](#Wireframe)
+- [Datamodel](#Datamodel)
+- [Git version control](#Git-version-control)
+- [Backend server repo](#Backend-server-repo)
+- [Reflection](#Reflection)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## APP DEMO
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+GIF OF USING THE APP
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Used technologies and concepts
 
-### `npm run eject`
+- React for UI building
+- Redux for state management
+- Authentication
+- Express as web app framework
+- AWS S3 for hosting audio files
+- Sequelize as ORM
+- ToneJs library as DAW (digital audio workstation)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Goals for this project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+After going through a though and intensive (but super fun!) coding bootcamp of 9 weeks it's time to put what i've learned to the test. The goal for this project was to build a full-stack-app and explore (for me) new technologies. Lot's of reading forums, watching videos and trial and error.
 
-## Learn More
+- Practice full-stack app development
+- Build a working prototype in 2 weeks
+- Apply the things i've learned in the bootcamp
+- Learn and use the Tone.Js library
+- Practice development skills like:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - Making wireframes
+  - Data model design
+  - Write user stories
+  - Use git version control
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  ***
 
-### Code Splitting
+  ## User stories
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+  ***
 
-### Analyzing the Bundle Size
+  - As a visitor of Drum_Machine, I am able to sign up and log in as a user. I must register before I can save my compositions
+  - The compositions I made can be saved by giving them a name
+  - I can see compositions I've saved in the past and load them so I can listen to them again
+  - I am able to play around with the sounds, adjust speed, volume and use Effects.
+  - Planned: Share your compositions with other users,
+  - Planned: Change Individual sounds.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+The project is still in progess and I'm planning to improve and add features over time. Any suggestions or feedback?
+Please let me know!
 
-### Making a Progressive Web App
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Project board
 
-### Advanced Configuration
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+[Go to project board](https://github.com/Tonyaap/DrumFrontent/projects/1)
 
-### Deployment
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## WireFrame
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Go to wireframs](https://github.com/Tonyaap/DrumFrontent/blob/development/Wireframe-DrumMachine.svg)
+
+---
+
+## Datamodel
+
+---
+
+[Go to datamodel](https://dbdiagram.io/d/5f91a8583a78976d7b78c6bc)
+
+---
+
+## Git version control
+
+---
+
+How i used Git.
+
+- Write clear commit messages
+- Work on the development branch
+
+---
+
+## Backend server repo
+
+---
+
+For the backend I used an Express server and user Sequelize to manage the Postgress database.
+
+[Backend repo](https://github.com/Tonyaap/DrumBackend)
+
+---
+
+## Reflection
+
+---
+
+At the start of this project I just finished 9 weeks of intensive coding training at the Codaisseur bootcamp.
+
+For my Drum_Machine I wanted to use some of the things that i've practiced during the Bootcamp. for example JS, React, Redux, Express etc..
+
+My background lies in music and that is how i came up with the idea to create a step-sequencer. I found out about the Tone-Js library and wanted to use it with react and react-redux so users could login and save their creations. During the process of building my app I discovered that for many reasons Tone-Js and React don't work together very well. Fortunately there is very clear documentation on how to use [Tone-Js](https://tonejs.github.io/docs/14.7.58/index.html), Unfortunately with react, most of the examples don't work. I had to figure out my ways of working around these problems but got most issues fixed in the end.
+
+In the future I hope to keep improving my Drum_Machine and make more features like adding FX.
+
+The last three months have been a rollercoaster ride.
+From working for one of the largest festival organizitions in the world to Covid-19 to losing my job to learning how to code!
+Luckily I can say i'm glad this happened or else I probably wouldn't have started coding.
+
+---
