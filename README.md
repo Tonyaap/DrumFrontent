@@ -137,6 +137,6 @@ In the future I hope to keep improving my Drum_Machine and make more features li
 
 The last three months have been a rollercoaster ride.
 From working for one of the largest festival organizitions in the world to Covid-19 to losing my job to learning how to code!
-Luckily I can say i'm glad this happened or else I probably wouldn't have started coding.
+Luckily I can say i'm glad this happened or else I probably wouldn't have started coding!
 
 ---
